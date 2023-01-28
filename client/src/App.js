@@ -1,10 +1,12 @@
+import { Box } from '@chakra-ui/react';
 import './App.css';
+import AllRoutes from './Routes/AllRoutes';
 
 function App() {
   return (
-    <div className="App">
-          <img width="50px" height="50px" src="https://store-db-okcart.netlify.app/img/logo.gif" />
-    </div>
+    <Box className="App">
+          <AllRoutes/>
+    </Box>
   );
 }
 

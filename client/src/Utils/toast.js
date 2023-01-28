@@ -11,7 +11,7 @@ export const toastHandlerS = (mess,toast,mess2="") => {
 
 export const toastHandlerF = (mess,toast) => {
   if(mess){
-    mess = mess.response.data || mess.message || mess
+    mess = mess?.response?.data || mess?.message || mess
   }
     toast({
         title: typeof mess == "string" ? mess : 'Something went wrong',
@@ -25,7 +25,7 @@ export const toastHandlerF = (mess,toast) => {
 
 export const toastHandlerFire = (mess,toast) => {
   if(mess){
-    mess = mess.message
+    mess = mess?.message
   }
     toast({
         title: typeof mess == "string" ? mess : 'Something went wrong',
