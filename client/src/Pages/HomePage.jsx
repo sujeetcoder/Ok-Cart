@@ -35,8 +35,10 @@ const HomePage = () => {
     return <Navigate to="/sd" />
   } */
   const doIt1 = async () => {
-    axios.post(`${dataUrl}/users/login`,{email:"sujeet@gmail.com",password:"sujeet8"},{withCredentials:true}).then((res)=>console.log(res)).catch((err)=>console.log(err))
-
+    axios.post(`${dataUrl}/users/login`,{email:"sujeet@gmail.com",password:"sujeet8"},{withCredentials:true}).then((res)=>{
+      console.log(res)
+      return axios.get(`${dataUrl}/users/login/check`,{withCredentials:true}).then((res2)=>console.log(res2)).catch((err2)=>console.log(err2))
+    }).catch((err)=>console.log(err))
   }
   const doIt2 = async () => {
     axios.post(`${dataUrl}/users/logout/sujeet@gmail.com`,{email:"sujeet@gmail.com",password:"sujeet8"},{withCredentials:true}).then((res)=>console.log(res)).catch((err)=>console.log(err))
