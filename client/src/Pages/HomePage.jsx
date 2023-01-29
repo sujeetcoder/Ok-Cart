@@ -3,8 +3,10 @@ import { dataUrl } from '../Utils/AllUrls'
 import axios from "axios"
 import {Navigate} from "react-router-dom"
 import { useEffect } from 'react'
+import { useState } from 'react'
 
 const HomePage = () => {
+  const [data,setData] = useState(null)
   const options = {
     enableHighAccuracy: true,
     timeout: 5000,
@@ -39,13 +41,16 @@ const HomePage = () => {
     axios.post(`${dataUrl}/users/logout/sujeet@gmail.com`,{email:"sujeet@gmail.com",password:"sujeet8"},{withCredentials:true}).then((res)=>console.log(res)).catch((err)=>console.log(err))
   }
   const doIt3 = async () => {
-    axios.get(`${dataUrl}/users/getuser`,{withCredentials:true}).then((res)=>console.log(res)).catch((err)=>console.log(err))
+    axios.get(`${dataUrl}/users/getuser`,{withCredentials:true}).then((res)=>{
+      console.log(res)
+      setData(res.data)
+    }).catch((err)=>console.log(err))
   }
 
    /* document &&document.requestStorageAccess().then((res)=>console.log(res)).catch((err)=>console.log(err)) */
    function checkThirdPartyCookies() {
     // Set a test cookie on a different domain
-    document.cookie = "test_cookie=test;domain=https://okcart-server.cyclic.app;path=/sameSite=none;secure";
+    document.cookie = "test_cookie=test;domain=okcart-server.cyclic.app;path=/sameSite=none;secure";
     // Check if the test cookie was successfully set
     if (document.cookie.indexOf("test_cookie=test") == -1) {
       console.log("Third-party cookies are blocked.");
@@ -70,6 +75,7 @@ const HomePage = () => {
       <button onClick={doIt1} >log in</button><br/>
       <button onClick={doIt2}>out</button><br/>
       <button onClick={doIt3}>get</button>
+      <p>{ data && data[0].email}</p>
     </div>
   )
 }

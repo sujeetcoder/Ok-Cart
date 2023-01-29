@@ -11,6 +11,7 @@ const userRouter= require("./routes/user.route")
 
 
 app.use(express.json())
+app.use(bodyParser.json())
 app.use(cors({
     origin: ["http://localhost:3000", "https://okcart.netlify.app"],
     credentials: true
@@ -18,7 +19,6 @@ app.use(cors({
 app.set("trust proxy", 1)
 app.use(cookieParser())
 app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
 
 
 
