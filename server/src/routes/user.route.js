@@ -6,6 +6,7 @@ const app=express.Router()
 
 const authIt = async (req, res, next) => {
     const _id = req.cookies._id
+    console.log(req.cookies)
     if(_id){
         req._id = _id
         next()
@@ -16,7 +17,7 @@ const authIt = async (req, res, next) => {
 
 app.get("/getuser", authIt, async (req, res) => {
     const _id = req._id
-    console.log(_id)
+
     try {
         let existing = await User.find()
         if(existing){
