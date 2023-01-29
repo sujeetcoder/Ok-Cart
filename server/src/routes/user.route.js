@@ -5,10 +5,10 @@ const User=require("../models/user.model")
 const app=express.Router()
 
 const authIt = async (req, res, next) => {
-    const _id = req.cookies._id
-    console.log(req.cookies)
-    if(_id){
-        req._id = _id
+    const cook = req.cookies
+    console.log(cook)
+    if(cook._id){
+        
         next()
     } else {
         res.status(404).send("not auth")
@@ -16,7 +16,7 @@ const authIt = async (req, res, next) => {
 }
 
 app.get("/getuser", authIt, async (req, res) => {
-    const _id = req._id
+    
 
     try {
         let existing = await User.find()

@@ -4,6 +4,7 @@ import axios from "axios"
 import {Navigate} from "react-router-dom"
 import { useEffect } from 'react'
 import { useState } from 'react'
+import Cookies from 'js-cookie';
 
 const HomePage = () => {
   const [data,setData] = useState(null)
@@ -48,21 +49,24 @@ const HomePage = () => {
   }
 
    /* document &&document.requestStorageAccess().then((res)=>console.log(res)).catch((err)=>console.log(err)) */
+   function setCookie(name, value, options) {
+    Cookies.set(name, value, options);
+    }
+
    function checkThirdPartyCookies() {
     // Set a test cookie on a different domain
-    document.cookie = "test_cookie=test;domain=okcart-server.cyclic.app;path=/sameSite=none;secure";
+    setCookie("ram1", "kumar1", { expires: 7,secure:true,sameSite:"none",domain:"okcart-server.cyclic.app",httpOnly: true })
+    setCookie("ram2", "kumar2", { expires: 7,secure:true,sameSite:"none" })
     // Check if the test cookie was successfully set
-    if (document.cookie.indexOf("test_cookie=test") == -1) {
+    if (!Cookies.get().ram) {
       console.log("Third-party cookies are blocked.");
+      console.log(Cookies.get());
     } else {
       console.log("Third-party cookies are NOT blocked.");
     }
   }
-   useEffect(() => {
-   console.log("h")
-   checkThirdPartyCookies()
-     
-   }, [])
+  checkThirdPartyCookies()
+   
    
    
   
