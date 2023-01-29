@@ -4,6 +4,31 @@ const User=require("../models/user.model")
 
 const app=express.Router()
 
+const authIt = async (req, res, next) => {
+    const _id = req.cookies._id
+    if(_id){
+        req._id = _id
+        next()
+    } else {
+        res.status(404).send("not auth")
+    }
+}
+
+app.get("/getuser", authIt, async (req, res) => {
+    const _id = req._id
+    console.log(_id)
+    try {
+        let existing = await User.find()
+        if(existing){
+            res.send(existing)
+        } else {
+            res.status(404).send("wrong")
+        }
+    } catch (e) {
+        res.send(e.message)
+    }
+})
+
 
 
 app.post("/signup", async (req, res) => {
