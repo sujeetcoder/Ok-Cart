@@ -57,7 +57,7 @@ try {
     if(user){
         if(user.email===email && user.password===password){
            let newUser = await User.findOneAndUpdate({email},{logStatus:true},{new:true})
-           res.cookie("_id", `${user?._id}` ,{httpOnly: true ,maxAge: 86400000,secure:true,sameSite:"none"})
+           res.cookie("_id", `${user?._id}` ,{httpOnly: true ,maxAge: 86400000,secure:true,sameSite:"lax"})
            res.send(newUser)
         } else {
             res.status(404).send("user email or password mismatch")
