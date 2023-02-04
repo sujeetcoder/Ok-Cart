@@ -13,7 +13,7 @@ const userRouter= require("./routes/user.route")
 app.use(express.json())
 app.use(bodyParser.json())
 app.use(cors({
-    origin: ["http://localhost:3000", "https://okcart.netlify.app"],
+    origin: ["http://localhost:3000", "https://okcart.vercel.app"],
     credentials: true
 }))
 app.set("trust proxy", 1)
