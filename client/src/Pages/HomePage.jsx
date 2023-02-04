@@ -60,7 +60,7 @@ const HomePage = () => {
     setCookie("ram1", "kumar1", { expires: 7,secure:true,sameSite:"none",domain:"okcart-server.cyclic.app",httpOnly: true })
     setCookie("ram2", "kumar2", { expires: 7,secure:true,sameSite:"none" })
     // Check if the test cookie was successfully set
-    if (!Cookies.get().ram) {
+    if (Cookies.get().ram) {
       console.log("Third-party cookies are blocked.");
       console.log(Cookies.get());
     } else {
@@ -82,6 +82,7 @@ const HomePage = () => {
       <button onClick={doIt2}>out</button><br/>
       <button onClick={doIt3}>get</button>
       <p>{ data && data[0].email}</p>
+      <div style={{border:"1px solid red",width:"100%"}} ></div>
     </div>
   )
 }

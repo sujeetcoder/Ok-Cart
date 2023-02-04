@@ -3,12 +3,14 @@ import './App.css';
 import AllRoutes from './Routes/AllRoutes';
 import axios from "axios"
 import { dataUrl } from './Utils/AllUrls';
+import Navbar from './Components/Navbar/Navbar.jsx';
 
 function App() {
-  axios.get(`${dataUrl}`).then((res)=>console.log(res)).catch((err)=>console.log(err.message))
+  // axios.get(`${dataUrl}`).then((res)=>console.log(res)).catch((err)=>console.log(err.message))
   return (
     <Box className="App">
-          <AllRoutes/>
+      <Navbar />
+      <AllRoutes/>
     </Box>
   );
 }
