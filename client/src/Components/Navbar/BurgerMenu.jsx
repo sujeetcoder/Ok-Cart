@@ -27,41 +27,20 @@ const BurgerMenu = () => {
   const btnRef = useRef();
   // const {isAuth} = useSelector((store) => store.auth);
   let prev;
-  let prev2;
 
-  const handleOut = (e) => {
+  const handleOut = () => {
     if (prev) {
       prev?.classList.remove("show-sec-drop");
       prev?.classList.add("hide-sec-drop");
     }
   };
   const handleOver = (e) => {
-    if (prev) {
-      prev?.classList.remove("show-sec-drop");
-      prev?.classList.add("hide-sec-drop");
-    }
-    if (prev2) {
-      prev2?.classList.remove("show-sec-drop");
-      prev2?.classList.add("hide-sec-drop");
-    }
+    handleOut();
     let elements = e.target?.nextElementSibling;
     elements?.classList.add("show-sec-drop");
     elements?.classList.remove("hide-sec-drop");
 
     prev = elements;
-    console.log(elements?.classList);
-  };
-  const handleOver3 = (e) => {
-    if (prev2) {
-      prev2?.classList.remove("show-sec-drop");
-      prev2?.classList.add("hide-sec-drop");
-    }
-    let elements = e.target?.nextElementSibling;
-    elements?.classList.add("show-sec-drop");
-    elements?.classList.remove("hide-sec-drop");
-
-    prev2 = elements;
-    console.log(elements?.classList);
   };
 
   return (

@@ -198,22 +198,22 @@ function Navbar() {
               <Text _hover={{ color: "#ff783d" }}>Home</Text> 
             </Link>
 
-            <div className={styles.makeup}>
-                <Flex _hover={{ color: "#ff783d" }} align="center" justify="center" gap="10px">
-                  <h3 onMouseOver={handleOut}>More</h3>{" "}
+            <Box className={styles.makeup}>
+                <Flex onMouseOver={handleOut} _hover={{ color: "#ff783d" }} align="center" justify="center" gap="10px">
+                  <h3 >More</h3>{" "}
                   <AiOutlineCaretDown mt="10px" />
                 </Flex>
 
-              <div className={styles.dropdown1}>
+              <Box className={styles.dropdown1}>
                   <a href="/" ><Text>Login</Text></a>
                   <a href="/" ><Text>Login</Text></a>
                   <a href="/" ><Text>Login</Text></a>
                   <a href="/" ><Text>Login</Text></a>
                   <a href="/" ><Text>Login</Text></a>
-              </div>
-            </div>
+              </Box>
+            </Box>
             {/* last */}
-            <Text onMouseOver={handleOver2} mt="-15" mb="10px" fontSize={"30"}>
+            <Text _hover={{ color: "#ff783d" }} onMouseOver={handleOver2} mt="-15" mb="10px" fontSize={"30"}>
               ...
             </Text>
           </Flex>
