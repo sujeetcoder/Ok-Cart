@@ -4,6 +4,7 @@ import AllRoutes from './Routes/AllRoutes';
 import axios from "axios"
 import { dataUrl } from './Utils/AllUrls';
 import Navbar from './Components/Navbar/Navbar.jsx';
+import Footer from './Components/Footer/Footer';
 
 function App() {
   // axios.get(`${dataUrl}`).then((res)=>console.log(res)).catch((err)=>console.log(err.message))
@@ -11,6 +12,7 @@ function App() {
     <Box className="App">
       <Navbar />
       <AllRoutes/>
+      <Footer/>
     </Box>
   );
 }
